@@ -1,8 +1,12 @@
 
 // on click character you want all others move to fight area
-$(".char").on("click", function(event) {
-
-})
+$(".character").on("click", function(event) {
+    var $this = $(this); // this is just for performance
+  if(!$this.hasClass('character'))
+    $('.character').toggleClass(".mainCharacter");
+    // this empties the array need to make it so it does not empty one clicked so maybe change something idk
+    $(".char").empty();
+});
 
 // click character you want to fight
 
