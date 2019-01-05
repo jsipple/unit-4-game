@@ -1,6 +1,7 @@
 .character {
     height: 200px;
     width: 250px;
+    
 }
 .main-character {
     height: 200px;
@@ -11,10 +12,33 @@
     width: 250px;
     display: inline-block;
     margin-top: 10px;
+    margin-left: 5px;
 }
 
-#rancor {
-    margin-left: 5px;   
+.main-character {
+    position: relative;
+    width: 250px;
+    display: inline-block;
+    margin-top: 10px;
+    top: 0;
+    left: 0;;
+    margin-left: 5px;
+}
+
+
+#fight {
+    margin-left: 100px;
+    background-color: black;
+    color: red;
+    line-height: 150%;
+    font-size: 24px;
+    width: 90px;
+    display: none;
+}
+
+#instr {
+    font-size: 24px;
+    color: white;
 }
 
 body {
@@ -30,3 +54,4 @@ bottom: 0;
 width: 100%;
 text-align: center;
 font-size: 24px;
+}
