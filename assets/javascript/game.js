@@ -24,21 +24,18 @@ darthMaul: {
 }
 }
 let multiplier = 1
-let mainhealth = 0;
+let mainHealth = 0;
 let character = ""
 let fighting = ""
 let fighterHealth = 0;
 let fighterCounterAttack = 0;
 
+// need to add a restart and 
 $(".pick").on("click", function(event) {
   $(this).addClass("main-character")
   $("section").removeClass("pick").addClass("fight");
   $(".main-character").appendTo("#main-character");
   $(".main-character").removeClass("fight");
-  character = $(".main-character")[0].id;
-  // problem with this it's running for the person you fighting instead of first one chosen same thing with attack
-  mainHealth = players[character].health;
-  console.log(mainHealth)
   $("#instr").text("Choose a character to fight");
   // why does this need to be in here rather than after(doesn't work if after)
   // they are also getting main-character class looks like still running pick but then running this
@@ -51,6 +48,10 @@ $(".pick").on("click", function(event) {
     fighting = $(".fighting")[0].id;  
     fighterHealth = players[fighting].health;
     fighterCounterAttack = players[fighting].counterAttack;
+    if (mainHealth == 0) {
+    character = $(".main-character")[0].id;
+    mainHealth = players[character].health;
+    }
   });
 });
 
@@ -64,15 +65,20 @@ function Attack() {
   // need to grab the p id with this
   // this sets it back each time
   let mainAttack = players[character].attack * multiplier;
+  multiplier++
   // this sets it back each time
   fighterHealth = fighterHealth - mainAttack;
   $("#fighting .health").text(fighterHealth)
-  if (fighterHealth > 0) {
+  if (fighterHealth < 0) {
     console.log(mainHealth)
-  mainHealth = mainHealth - fighterCounterAttack
-  }
+  $("#results").text(character + " has defeated " + fighting)
+  $(".fighting").remove();
+  $("#fight").hide();
+  } else {
+    mainHealth = mainHealth - fighterCounterAttack
   $("#main-character .health").text(mainHealth);
-  multiplier++
+  $("#results").text(character + " hits " + fighting + " for " + mainAttack + " " + fighting + " hits " + character + " for " + fighterCounterAttack)
+  }
 }
 
 // // click character you want to fight should put it into id fighter should also make button id fight visable
