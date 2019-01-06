@@ -55,8 +55,15 @@ $(".pick").on("click", function(event) {
   });
 });
 
-
-
+$(".tatooine").on("click", function changeTheme() {
+  document.body.style.backgroundImage = "url('./assets/images/tatooine.jpeg')";
+});
+$(".hanger").on("click", function changeTheme2() {
+  document.body.style.backgroundImage = "url('./assets/images/hanger.jpg')"; 
+});
+$(".hoth").on("click", function changeTheme3() {
+  document.body.style.backgroundImage = "url('./assets/images/background.jpg')"; 
+});
 
 
 function Attack() {
@@ -71,15 +78,39 @@ function Attack() {
   $("#fighting .health").text(fighterHealth)
   if (fighterHealth < 0) {
     console.log(mainHealth)
-  $("#results").text(character + " has defeated " + fighting)
   $(".fighting").remove();
   $("#fight").hide();
+  if ($(".fight")[0]) {
+    $("#results").text(character + " has defeated " + fighting)
+  } else {
+    $("#results").text("Congatulations you won!")
+    $("#restart").show();
+  }
   } else {
     mainHealth = mainHealth - fighterCounterAttack
   $("#main-character .health").text(mainHealth);
   $("#results").text(character + " hits " + fighting + " for " + mainAttack + " " + fighting + " hits " + character + " for " + fighterCounterAttack)
   }
 }
+// need to figure out a way to add this back in thinking on it probably easies is windows onload but would rather just reset it
+// function restart() {
+//   $("#game").innerhtml(<section class="char pick" id="rancor">
+//   <img class="character" src="./assets/images/Rancor.jpeg">
+//   <p class="health" id="rancorHealth">500</p>
+//   </section>
+//   <section class="char pick" id="bobaFett">
+//   <img class="character" src="./assets/images/Boba-Fett.jpeg">
+//   <p class="health" id="boboFettHealth">200</p>
+//   </section>
+//   <section class="char pick" id="obiWan">
+//   <img class="character" src="./assets/images/obi-wan.jpg">
+//   <p class="health" id="obiWanHealth">250</p>
+//   </section>
+//   <section class="char pick" id="darthMaul">
+//   <img class="character" src="./assets/images/Darth-Maul.jpeg">
+//   <p class="health" id="darthMaulHealth">300</p>
+//   </section>)
+// }
 
 // // click character you want to fight should put it into id fighter should also make button id fight visable
 

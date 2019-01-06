@@ -1,3 +1,4 @@
+
 .character {
     height: 200px;
     width: 250px;
@@ -31,19 +32,52 @@
     background-color: black;
     color: red;
     line-height: 150%;
-    font-size: 24px;
     width: 90px;
     display: none;
-}
-
-#instr {
-    font-size: 24px;
-    color: white;
 }
 
 body {
     background-image: url('../images/background.jpg');
     background-size: 100%;
+    color: #7DF9FF;
+    font-size: 24px;
+}
+
+#restart {
+    margin-left: 90px;
+    background-color: black;
+    color: red;
+    line-height: 150%;
+    width: 90px;
+    display: none;
+}
+
+.hanger {
+    height: 40px;
+    width: 75px;
+    background-image: url('../images/hanger.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;   
+}
+#themes {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+.hoth {
+    height: 40px;
+    width: 75px;
+    background-image: url('../images/background.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat; 
+}
+
+.tatooine {
+    height: 40px;
+    width: 75px;
+    background-image: url('../images/tatooine.jpeg');
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 .health {

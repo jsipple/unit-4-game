@@ -11,7 +11,7 @@
 
 </head>
 <body>
-
+    <div id="game">
     <section class="char pick" id="rancor">
     <img class="character" src="./assets/images/Rancor.jpeg">
     <p class="health" id="rancorHealth">500</p>
@@ -28,6 +28,7 @@
     <img class="character" src="./assets/images/Darth-Maul.jpeg">
     <p class="health" id="darthMaulHealth">300</p>
     </section>
+    </div>
 
 
 
@@ -38,12 +39,20 @@
 
     <div id="button">
         <button onclick="Attack()" id="fight">FIGHT</button>
+        <button id="restart" onclick="restart()">Restart</button>
+        <br>
         <div id="results">
 
         </div>
     </div>
     <div id="fighting">
         
+    </div>
+<div id="themes">
+    <br>
+    <input class="tatooine" type="button" value="" onclick="changeTheme()">
+    <input type="button" value="" class="hanger" onclick="changeTheme2()">
+    <input type="button" value="" class="hoth" onclick="changeTheme3()">
     </div>
     <script src="./assets/javascript/game.js"></script>
 </body>
