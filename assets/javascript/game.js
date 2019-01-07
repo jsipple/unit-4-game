@@ -23,10 +23,10 @@ darthMaul: {
   counterAttack: 25
 }
 }
-let multiplier = 1
+let multiplier = 1;
 let mainHealth = 0;
-let character = ""
-let fighting = ""
+let character = "";
+let fighting = "";
 let fighterHealth = 0;
 let fighterCounterAttack = 0;
 
@@ -71,12 +71,14 @@ function Attack() {
   // add a value to the id
   // need to grab the p id with this
   // this sets it back each time
+  var audio = new Audio('./assets/audio/lightsaber.mp3');
+audio.play();
   let mainAttack = players[character].attack * multiplier;
   multiplier++
   // this sets it back each time
   fighterHealth = fighterHealth - mainAttack;
   $("#fighting .health").text(fighterHealth)
-  if (fighterHealth < 0) {
+  if (fighterHealth <= 0) {
     console.log(mainHealth)
   $(".fighting").remove();
   $("#fight").hide();
@@ -89,28 +91,19 @@ function Attack() {
   } else {
     mainHealth = mainHealth - fighterCounterAttack
   $("#main-character .health").text(mainHealth);
+  if (mainHealth <= 0) {
+    $(".main-character").remove();
+    $("#fight").hide();
+    $("#results").text("You lost!")
+    $("#restart").show();
+  }
   $("#results").text(character + " hits " + fighting + " for " + mainAttack + " " + fighting + " hits " + character + " for " + fighterCounterAttack)
   }
 }
-// need to figure out a way to add this back in thinking on it probably easies is windows onload but would rather just reset it
-// function restart() {
-//   $("#game").innerhtml(<section class="char pick" id="rancor">
-//   <img class="character" src="./assets/images/Rancor.jpeg">
-//   <p class="health" id="rancorHealth">500</p>
-//   </section>
-//   <section class="char pick" id="bobaFett">
-//   <img class="character" src="./assets/images/Boba-Fett.jpeg">
-//   <p class="health" id="boboFettHealth">200</p>
-//   </section>
-//   <section class="char pick" id="obiWan">
-//   <img class="character" src="./assets/images/obi-wan.jpg">
-//   <p class="health" id="obiWanHealth">250</p>
-//   </section>
-//   <section class="char pick" id="darthMaul">
-//   <img class="character" src="./assets/images/Darth-Maul.jpeg">
-//   <p class="health" id="darthMaulHealth">300</p>
-//   </section>)
-// }
+
+function restart() {
+  location.reload();
+}
 
 // // click character you want to fight should put it into id fighter should also make button id fight visable
 
