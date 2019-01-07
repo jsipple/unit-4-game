@@ -71,8 +71,18 @@ function Attack() {
   // add a value to the id
   // need to grab the p id with this
   // this sets it back each time
+  if (character == "obiWan" || character == "darthMaul") {
   var audio = new Audio('./assets/audio/lightsaber.mp3');
 audio.play();
+  }
+  if (character == "bobaFett") {
+    var audio = new Audio('./assets/audio/LaserBlast.mp3');
+    audio.play();
+  }
+  if (character == "rancor") {
+    var audio = new Audio('./assets/audio/RancorRoar.mp3');
+    audio.play();
+  }
   let mainAttack = players[character].attack * multiplier;
   multiplier++
   // this sets it back each time
